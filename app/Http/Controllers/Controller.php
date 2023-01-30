@@ -19,7 +19,18 @@ class Controller extends BaseController
 {
     
   
-	
+	public function apicallback(Request $request)
+    {
+        $header = $request->header();
+        $header = json_encode($header);
+        $body = $request->input();
+        $body = json_encode($body);
+        $log = "body is ".$body."   header is ".$header;
+        $file_path1 = base_path('tmp/trace.log');
+        error_log($log,3,$file_path1);
+
+    }
+
     public function parse_parameters( $request1, $api_name){
          // dd($api_name);/* 方法名test*/
          return 'controlTest';
@@ -345,7 +356,7 @@ class Controller extends BaseController
           //  new_order   require_delivery   info_change     status_change
        for ($i=0; $i<=0; $i++)
          {
-            $order_id= (string)(100504095+$i);
+            $order_id= (string)(100504096+$i);
          //send message to service bus with token
          $cURL = curl_init();
 

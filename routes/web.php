@@ -36,6 +36,7 @@ $router->get('/key', function() {
 $router->get('/redis1', 'Controller@redis1');
 $router->get('/save', 'Controller@save');
 $router->get('/sha512', 'Controller@sha512');
+$router->post('/apicallback', 'Controller@apicallback');
 $router->get('/jwttoken', 'Controller@jwttoken');
 $router->get('/export', 'Controller@export');
 $router->get('/getkey', 'Controller@getkey');
