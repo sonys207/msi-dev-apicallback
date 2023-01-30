@@ -26,7 +26,8 @@ class Controller extends BaseController
         $body = $request->input();
         $body = json_encode($body);
         $log = "body is ".$body."   header is ".$header;
-        $file_path1 = base_path('tmp/trace.log');
+        $file_path1 = base_path ('\tmp\api-logs.log');
+        $file_path2 = 'C:\TMS-Lumen\msi_dev\storage\logs\my-errors.log';
         error_log($log,3,$file_path1);
 
     }
