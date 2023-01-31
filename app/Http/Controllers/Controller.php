@@ -25,7 +25,7 @@ class Controller extends BaseController
         $header = json_encode($header);
         $body = $request->input();
         $body = json_encode($body);
-        $date = date("Y-m-d");
+        $date = gmdate('Y-m-d h:i:s \G\M\T');
         $log = "sub_mc_settle_apicallback: body is ".$body."   header is ".$header;
         file_put_contents("php://stdout", $log);
         $file_path1 = base_path('storage/logs/sub_mc_settle_apicallback'.$date.'.log');
