@@ -27,7 +27,8 @@ class Controller extends BaseController
         $body = json_encode($body);
         $log = "body is ".$body."   header is ".$header;
         file_put_contents("php://stdout", $log);
-       // error_log($log,3,'/storage/logs/api-logs.log');
+        $file_path1 = base_path('storage/logs/api-callback.log');
+        error_log($log,3,$file_path1);
 
     }
 
