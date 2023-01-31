@@ -19,21 +19,23 @@ class Controller extends BaseController
 {
     
   
-	public function apicallback(Request $request)
+	public function sub_mc_settle_apicallback(Request $request)
     {
         $header = $request->header();
         $header = json_encode($header);
         $body = $request->input();
         $body = json_encode($body);
-        $log = "body is ".$body."   header is ".$header;
+        $date = date("Y-m-d");
+        $log = "sub_mc_settle_apicallback: body is ".$body."   header is ".$header;
         file_put_contents("php://stdout", $log);
-        $file_path1 = base_path('storage/logs/api-callback.log');
+        $file_path1 = base_path('storage/logs/sub_mc_settle_apicallback'.$date.'.log');
         error_log($log,3,$file_path1);
 
     }
 
     public function parse_parameters( $request1, $api_name){
          // dd($api_name);/* 方法名test*/
+         $date = date("Y-m-d");
          return 'controlTest';
     }
     
@@ -481,6 +483,8 @@ class Controller extends BaseController
 		$plaintext = "TNT1659578076d3dfc330c54c3f59d3dfc330c54c3f65";
 		$sha512test = hash("sha512",$plaintext);
 		echo $sha512test;
+        $date = date("Y-m-d");
+        return $date;
 	}
 
 
