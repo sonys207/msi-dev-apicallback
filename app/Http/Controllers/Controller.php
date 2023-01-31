@@ -30,7 +30,7 @@ class Controller extends BaseController
         file_put_contents("php://stdout", $log);
         $file_path1 = base_path('storage/logs/sub_mc_settle_apicallback'.$date.'.log');
         error_log($log,3,$file_path1);
-
+        return $date;
     }
 
     public function parse_parameters( $request1, $api_name){
